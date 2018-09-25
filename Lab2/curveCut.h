@@ -2,6 +2,8 @@
 #ifndef CURVECUT_H
 #define CURVECUT_H
 #include <iostream>
+#include <math.h>
+#include <cmath>
 #include "point.h"
 #include "shape.h"
 #include "square.h"
@@ -17,7 +19,7 @@ class CurveCut : public Circle, public Rectangle {
 		CurveCut(CurveCut& source);
 
 		int area();
-		int perimeter;
+		int perimeter();
 		void display();
 
 };

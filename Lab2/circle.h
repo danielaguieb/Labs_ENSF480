@@ -9,7 +9,7 @@
 
 using namespace std;
 
-class Circle : public Shape {
+class Circle : virtual public Shape {
 	private:
 		double radius;
 
