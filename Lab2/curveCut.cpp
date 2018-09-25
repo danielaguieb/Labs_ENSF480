@@ -15,3 +15,4 @@ CurveCut::CurveCut(int x, int y, int sa, int sb, int r, char const* n):
 CurveCut::CurveCut(CurveCut& source):
 	Circle(source.origin, source.shapeName),
 	Rectangle(source.origin, source.shapeName){}
+	
