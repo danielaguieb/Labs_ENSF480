@@ -5,14 +5,17 @@
 
 
 Rectangle::Rectangle(Point& o, double sa, double sb, char const* n): 
-	Square(o, sa, n), 
+	Shape(o, n),
+	Square(o, sa, n),
 	side_b(sb) {}
 
 Rectangle::Rectangle(double x, double y, double sa, double sb, char const* n):
+	Shape(x, y, n),
 	Square(x, y, sa, n),
 	side_b(sb) {}
 
 Rectangle::Rectangle(Rectangle& source):
+	Shape(source.origin, source.shapeName),
 	Square(source.origin, source.side_a, source.shapeName),
 	side_b(source.side_b) {}
 
