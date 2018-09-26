@@ -14,12 +14,12 @@ class CurveCut : public Circle, public Rectangle {
 	private:
 
 	public:
-		CurveCut(Point& o, int sa, int sb, int r, char const* n);
-		CurveCut(int x, int y, int sa, int sb, int r, char const* n);
+		CurveCut(Point& o, double sa, double sb, double r, char const* n);
+		CurveCut(double x, double y, double sa, double sb, double r, char const* n);
 		CurveCut(CurveCut& source);
 
-		int area();
-		int perimeter();
+		double area();
+		double perimeter();
 		void display();
 
 };

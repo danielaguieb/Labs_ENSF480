@@ -4,11 +4,11 @@
 
 
 
-Rectangle::Rectangle(Point& o, int sa, int sb, char const* n): 
+Rectangle::Rectangle(Point& o, double sa, double sb, char const* n): 
 	Square(o, sa, n), 
 	side_b(sb) {}
 
-Rectangle::Rectangle(int x, int y, int sa, int sb, char const* n):
+Rectangle::Rectangle(double x, double y, double sa, double sb, char const* n):
 	Square(x, y, sa, n),
 	side_b(sb) {}
 
@@ -16,12 +16,20 @@ Rectangle::Rectangle(Rectangle& source):
 	Square(source.origin, source.side_a, source.shapeName),
 	side_b(source.side_b) {}
 
-void Rectangle::set_side_a(int toSet){
+void Rectangle::set_side_a(double toSet){
 	Square::set_side_a(toSet);
 }
 
-void Rectangle::set_side_b(int toSet){
+void Rectangle::set_side_b(double toSet){
 	side_b = toSet;
+}
+
+double Rectangle::get_side_a(){
+	return Square::get_side_a();
+}
+
+double Rectangle::get_side_b(){
+	return side_b;
 }
 
 double Rectangle::area(){
