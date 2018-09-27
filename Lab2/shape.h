@@ -18,6 +18,9 @@ class Shape {
 		Shape(int x, int y, char const* n);
 		Shape(Shape& source);
 		~Shape();
+		virtual double area()=0;
+		// can do wow
+		double virtual perimeter()=0;
 		Shape& operator =(Shape& rhs);
 		Point& getOrigin();
 		const char* getName();

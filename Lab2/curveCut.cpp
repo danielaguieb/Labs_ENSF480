@@ -5,32 +5,33 @@
 
 
 CurveCut::CurveCut(Point& o, double sa, double sb, double r, char const* n):
+	Shape(o, n),
 	Circle(o, r, n),
 	Rectangle(o, sa, sb, n) {
 		if(r > sa && r > sb){
-			cout << "Error: radius of circle is greater than " <<
+			cout << "Error: radius of circle is greater than "
 				 << "the smallest length of the rectangle.\n"
 				 << "Terminating...";
 			exit(1);
 		}
-		Shape(o, n);
 	}
 
 CurveCut::CurveCut(double x, double y, double sa, double sb, double r, char const* n):
+	Shape(x, y, n),
 	Circle(x, y, r, n),
 	Rectangle(x, y, sa, sb, n) {
 		if(r > sa && r > sb){
-			cout << "Error: radius of circle is greater than " <<
+			cout << "Error: radius of circle is greater than "
 				 << "the smallest length of the rectangle.\n"
 				 << "Terminating...";
 			exit(1);
 		}
-		Shape:(x, y, n);
 }
 
 CurveCut::CurveCut(CurveCut& source):
-	Circle(source.origin, source.shapeName),
-	Rectangle(source.origin, source.shapeName) {
+	Shape(source.origin, source.shapeName),
+	Circle(source.origin, source.get_radius(), source.shapeName),
+	Rectangle(source.origin, source.get_side_a(), source.get_side_b(), source.shapeName) {
 		double r = Circle::get_radius();
 		double sa = Rectangle::get_side_a();
 		double sb = Rectangle::get_side_b();
@@ -40,7 +41,18 @@ CurveCut::CurveCut(CurveCut& source):
 				 << "Terminating...";
 			exit(1);
 		}
-		Shape(source.origin, source.shapeName);
+}
+
+double CurveCut::get_side_a(){
+	return Rectangle::get_side_a();
+}
+
+double CurveCut::get_side_b(){
+	return Rectangle::get_side_b();
+}
+
+double CurveCut::get_radius(){
+	return Circle::get_radius();
 }
 
 double CurveCut::area(){

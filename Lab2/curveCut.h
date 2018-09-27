@@ -18,6 +18,9 @@ class CurveCut : public Circle, public Rectangle {
 		CurveCut(double x, double y, double sa, double sb, double r, char const* n);
 		CurveCut(CurveCut& source);
 
+		double get_side_a();
+		double get_side_b();
+		double get_radius();
 		double area();
 		double perimeter();
 		void display();
