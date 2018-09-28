@@ -33,7 +33,7 @@ Point& Point::operator =( Point& rhs){
 void Point::display(){
 	cout << setprecision(2) << fixed;
 
-	cout << "X-coordinate: " << x << "\n";
+	cout << "\nX-coordinate: " << x << "\n";
 	cout << "Y-coordinate: " << y << "\n";
 }
 

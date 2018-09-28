@@ -56,7 +56,7 @@ const char* Shape::getName(){
 }
 
 void Shape::display(){
-	cout << "Shape Name: " << getName() << "\n";
+	cout << "\nShape Name: " << getName() << "\n";
 	origin.display();
 }
 

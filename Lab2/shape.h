@@ -23,8 +23,8 @@ class Shape {
 		double virtual perimeter()=0;
 		Shape& operator =(Shape& rhs);
 		Point& getOrigin();
-		const char* getName();
-		void display();
+		virtual const char* getName();
+		virtual void display();
 		double distance(Shape& other);
 		static double distance(Shape& the_shape, Shape& other);
 		void move(double dx, double dy);

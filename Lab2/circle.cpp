@@ -35,7 +35,7 @@ double Circle::perimeter(){
 void Circle::display(){
 	cout << setprecision(2) << fixed;
 	
-	cout << "Circle Name: " << Shape::getName() << "\n"
+	cout << "\nCircle Name: " << Shape::getName() << "\n"
 		 << "X-coordinate: " << origin.get_x() << "\n"
 		 << "Y-coordinate: " << origin.get_y() << "\n"
 		 << "Radius: " << radius << "\n"

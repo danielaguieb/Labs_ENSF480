@@ -36,7 +36,7 @@ double Square::perimeter(){
 void Square::display(){
 	cout << setprecision(2) << fixed;
 	
-	cout << "Square Name: " << Shape::getName() << "\n"
+	cout << "\nSquare Name: " << Shape::getName() << "\n"
 		 << "X-coordinate: " << origin.get_x() << "\n"
 		 << "Y-coordinate: " << origin.get_y() << "\n"
 		 << "Side a: " << side_a << "\n"

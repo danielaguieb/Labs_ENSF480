@@ -46,7 +46,7 @@ double Rectangle::perimeter(){
 void Rectangle::display(){
 	cout << setprecision(2) << fixed;
 	
-	cout << "Rectangle Name: " << Shape::getName() << "\n"
+	cout << "\nRectangle Name: " << Shape::getName() << "\n"
 		 << "X-coordinate: " << origin.get_x() << "\n"
 		 << "Y-coordinate: " << origin.get_y() << "\n"
 		 << "Side a: " << side_a << "\n"

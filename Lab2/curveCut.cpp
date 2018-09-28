@@ -73,12 +73,12 @@ double CurveCut::perimeter(){
 void CurveCut::display(){
 	cout << setprecision(2) << fixed;
 
-	cout << "CurveCut Name: " << Shape::getName() << "\n"
+	cout << "\nCurveCut Name: " << Shape::getName() << "\n"
 		 << "X-coordinate: " << origin.get_x() << "\n"
 		 << "Y-coordinate: " << origin.get_y() << "\n"
 		 << "Width: " << Rectangle::get_side_a() << "\n"
 		 << "Length: " << Rectangle::get_side_b() << "\n"
-		 << "Radius of the cut:" << Circle::get_radius() << "\n";
+		 << "Radius of the cut: " << Circle::get_radius() << "\n";
 }
 
 
