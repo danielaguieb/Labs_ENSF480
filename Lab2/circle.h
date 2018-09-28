@@ -14,12 +14,12 @@ class Circle : virtual public Shape {
 		double radius;
 
 	public:
-		Circle(Point& o, int r, char const* n);
-		Circle(int x, int y, int r, char const* n);
+		Circle(Point& o, double r, char const* n);
+		Circle(double x, double y, double r, char const* n);
 		Circle(Circle& source);
 
-		int get_radius();
-		void set_radius(int toSet);
+		double get_radius();
+		void set_radius(double toSet);
 		double area();
 		double perimeter();
 		void display();

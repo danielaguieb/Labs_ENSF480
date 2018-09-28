@@ -62,15 +62,15 @@ void GraphicsWorld::run(){
 
 #if 1 // Change 0 to 1 to test using array of pointer and polymorphism
 	cout << "\nTesting array of pointers and polymorphism:" <<endl;
-	Shape* sh[4];
-	sh[0] = &s;
-	sh[1] = &b;
-	sh [2] = &rec1;
-	sh [3] = &rec3;
-	sh [0]->display();
-	sh [1]->display();
-	sh [2]->display();
-	sh [3]->display();
+	Shape* sh0[4];
+	sh0[0] = &s;
+	sh0[1] = &b;
+	sh0 [2] = &rec1;
+	sh0 [3] = &rec3;
+	sh0 [0]->display();
+	sh0 [1]->display();
+	sh0 [2]->display();
+	sh0 [3]->display();
 #endif // end of block to test array of pointer and polymorphism
 
 #if 1
@@ -83,7 +83,7 @@ void GraphicsWorld::run(){
 	 cout << "\nThe distance between rectangle a and circle c is: " <<d;
 #endif
 
-#if 0
+#if 1
 	 CurveCut rc (6, 5, 10, 12, 9, "CurveCut rc");
 	rc.display();
 	cout << "the area of " << rc.getName() <<" is: "<< rc.area();

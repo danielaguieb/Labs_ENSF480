@@ -4,11 +4,11 @@
 
 
 
-Square::Square(Point& o, int sa, char const* n):
+Square::Square(Point& o, double sa, char const* n):
 	Shape(o, n), 	
 	side_a(sa) {}
 
-Square::Square(int x, int y, int sa, char const* n):
+Square::Square(double x, double y, double sa, char const* n):
 	Shape(x, y, n),
 	side_a(sa) {}
 
@@ -17,8 +17,12 @@ Square::Square(Square& source):
 	side_a(source.side_a) {}
 
 
-void Square::set_side_a(int toSet){
+void Square::set_side_a(double toSet){
 	side_a = toSet;
+}
+
+double Square::get_side_a(){
+	return side_a;
 }
 
 double Square::area(){

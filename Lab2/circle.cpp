@@ -4,11 +4,11 @@
 
 
 
-Circle::Circle(Point& o, int r, char const* n):
+Circle::Circle(Point& o, double r, char const* n):
 	Shape(o, n),
 	radius(r) {}
 
-Circle::Circle(int x, int y, int r, char const* n):
+Circle::Circle(double x, double y, double r, char const* n):
 	Shape(x, y, n),
 	radius(r) {}
 
@@ -16,11 +16,11 @@ Circle::Circle(Circle& source):
 	Shape(source.origin, source.shapeName),
 	radius(source.radius) {}
 
-int Circle::get_radius(){
+double Circle::get_radius(){
 	return radius;
 }
 
-void Circle::set_radius(int toSet){
+void Circle::set_radius(double toSet){
 	radius = toSet;
 }
 

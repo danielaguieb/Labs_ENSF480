@@ -9,4 +9,4 @@ int main(){
 	return 0;
 }
 
-// g++ -Wall -o myprog point.cpp shape.cpp square.cpp rectangle.cpp circle.cpp graphicsWorld.cpp labMain.cpp
+// g++ -Wall -o myprog point.cpp shape.cpp square.cpp rectangle.cpp circle.cpp curveCut.cpp graphicsWorld.cpp labMain.cpp

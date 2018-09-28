@@ -13,12 +13,14 @@ class Rectangle : public Square {
 		double side_b;
 
 	public:
-		Rectangle(Point& o, int sa, int sb, char const* n);
-		Rectangle(int x, int y, int sa, int sb, char const* n);
+		Rectangle(Point& o, double sa, double sb, char const* n);
+		Rectangle(double x, double y, double sa, double sb, char const* n);
 		Rectangle(Rectangle& source);
 
-		void set_side_a(int toSet);
-		void set_side_b(int toSet);
+		void set_side_a(double toSet);
+		void set_side_b(double toSet);
+		double get_side_a();
+		double get_side_b();
 		double area();
 		double perimeter();
 		void display();
