@@ -138,6 +138,8 @@ void Vector<T>::ascending_sort()
 				swap(array[i], array[j]);
 }
 
+&Mystring Vector<Mystring>
+
 template <class T>
 void Vector<T>::swap(T& a, T& b)
 {
