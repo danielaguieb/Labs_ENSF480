@@ -4,6 +4,9 @@
 
 #ifndef MYSTRING_H
 #define MYSTRING_H
+#include <string.h>
+#include <iostream>
+using namespace std;
 
 class Mystring {
  public:

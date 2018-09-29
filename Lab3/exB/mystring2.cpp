@@ -2,9 +2,6 @@
 // ENSF 480 - Fall 2018 - Lab 3, Ex A and B
 // M. Moussavi: Sept 26, 2018
 #include "mystring2.h"
-#include <string.h>
-#include <iostream>
-using namespace std;
 
 Mystring::Mystring()
 { 

@@ -1,9 +1,6 @@
 // ENSF 480 - Fall 2018 - Lab 3, Ex B
 // M. Moussavi: Sept 26, 2018
 #include "customer.h"
-#include <iostream>
-
-using namespace std;
 
 Customer::Customer(const Mystring& fn, const Mystring& ln, const Mystring& ad, const Mystring& ph):fname(fn), lname(ln), address(ad), phone(ph)
 {

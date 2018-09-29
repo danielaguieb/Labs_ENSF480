@@ -17,6 +17,10 @@ void test_Customer();
 //void test_String();
 //void test_integer();
 
+
+// g++ -Wall -o exb customer.cpp mystring2.cpp mainlab3exb.cpp
+
+
 int main()
 {
  //create and test a a lookup table of type <int, Customer>

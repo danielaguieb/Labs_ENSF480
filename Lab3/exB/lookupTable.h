@@ -23,15 +23,16 @@ using namespace std;
 typedef int LT_Key; 
 typedef Customer LT_Datum;
  
+template <class T>
 struct Pair 
 {
   //constructor
-  Pair(LT_Key keyA,LT_Datum datumA):key(keyA), datum(datumA)
+  Pair(LT_Key keyA,T datumA):key(keyA), datum(datumA)
   {
   } 
   
   LT_Key key;
-  LT_Datum datum;
+  T datum;
 };
 
 class LT_Node {
@@ -44,6 +45,10 @@ private:
   LT_Node(const Pair& pairA, LT_Node *nextA);
 };
 
+
+template <class T> class LookupTable;
+
+template <class T>
 class LookupTable {
  public:
   // Nested class
