@@ -138,12 +138,26 @@ void Vector<T>::ascending_sort()
 				swap(array[i], array[j]);
 }
 
-&Mystring Vector<Mystring>
+template <>
+void Vector<Mystring>::ascending_sort(){
+  for(int i=0; i< size-1; i++)
+    for(int j=i+1; j < size; j++)
+      if(array[i].isGreater(array[j]))
+        swap(array[i], array[j]);  
+}
+
+template<>
+void Vector<char *>::ascending_sort(){
+  for(int i=0; i< size-1; i++)
+    for(int j=i+1; j < size; j++)
+      if((strcmp(array[i], array[j])) > 0)
+        swap(array[i], array[j]);
+}
 
 template <class T>
 void Vector<T>::swap(T& a, T& b)
 {
-	int tmp = a;
+	T tmp = a;
 	a = b;
 	b = tmp;
 }
@@ -152,7 +166,7 @@ template <class T>
 Vector<T>::Vector(int sz)
 {
   size=sz;
-  array = new int [sz];
+  array = new T [sz];
   assert (array != NULL);
 }
 
@@ -211,12 +225,15 @@ int main()
 	cout << endl;
  #endif
 
- #if 0	//testing out how template works with string
+ #if 1	//testing out how template works with string
 	cout << "Testing a <String> Vector: " << endl;
 	Vector<Mystring> y(3);
 	y[0] = "Bar";
 	y[1] = "Foo";
-	y[2] = "All";;
+	y[2] = "All";
+  // y[0] = "Abc";
+  // y[1] = "Amn";
+  // y[2] = "Ayz";
 	
 	Vector<Mystring>::VectIter iters(y);
 	
@@ -240,12 +257,15 @@ int main()
  #endif
 	
 	
-#if 0	//testing how template works with char*
+#if 1	//testing how template works with char*
 	cout << endl; cout << "Testing a <char *> Vector: " << endl;
 	Vector<char*> z(3);
-	z[0] = "Orange";
-	z[1] = "Pear";
-	z[2] = "Apple";;
+	z[0] = (char*)"Orange";
+	z[1] = (char*)"Pear";
+	z[2] = (char*)"Apple";
+  // z[0] = (char*)"Abc";
+  // z[1] = (char*)"Ayz";
+  // z[2] = (char*)"Amn";
 	
 	Vector<char*>::VectIter iterchar(z);
 	
@@ -256,7 +276,7 @@ int main()
 		cout << endl << iterchar++;
 #endif 
 
-	cout << "\nPrgram Terminated Successfully." << endl;
+	cout << "\nProgram Terminated Successfully." << endl;
 	
 	return 0;
 }
