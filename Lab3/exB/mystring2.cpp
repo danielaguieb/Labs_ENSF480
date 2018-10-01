@@ -3,6 +3,7 @@
 // M. Moussavi: Sept 26, 2018
 #include "mystring2.h"
 
+
 Mystring::Mystring()
 { 
   charsM = new char[1]; 
@@ -79,6 +80,11 @@ Mystring& Mystring::operator =(const Mystring& S)
   charsM = new char [lengthM+1];
   strcpy(charsM,S.charsM);
   return *this;
+}
+
+ostream& operator <<(ostream& os, Mystring& output){
+  os << output.charsM;
+  return os;
 }
 
 Mystring& Mystring::append(const Mystring& other)
