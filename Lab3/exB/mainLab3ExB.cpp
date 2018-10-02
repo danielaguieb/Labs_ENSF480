@@ -9,8 +9,12 @@
 #include <cstring>
 using namespace std;
 
-void print(LookupTable& lt);
-void try_to_find(LookupTable& lt, int key);
+template <class K, class D>
+void print(LookupTable<K,D>& lt);
+
+template <class K, class D>
+void try_to_find(LookupTable<K,D>& lt, K key);
+
 void test_Customer();
 
 //Uncomment the following function calls when ready to test template class LookupTable
@@ -18,8 +22,9 @@ void test_Customer();
 //void test_integer();
 
 
+/////////////////////////////////////////////////////////////
 // g++ -Wall -o exb customer.cpp mystring2.cpp mainlab3exb.cpp
-
+/////////////////////////////////////////////////////////////
 
 int main()
 {
@@ -37,7 +42,8 @@ int main()
   return 0;
 }
 
-void print(LookupTable& lt)
+template <class K, class D>
+void print(LookupTable<K,D>& lt)
 {
   if (lt.size() == 0)
     cout << "  Table is EMPTY.\n";
@@ -46,7 +52,8 @@ void print(LookupTable& lt)
   }
 }
 
-void try_to_find(LookupTable& lt, int key)
+template <class K, class D>
+void try_to_find(LookupTable<K,D>& lt, K key)
 {
   lt.find(key);
   if (lt.cursor_ok())
@@ -58,16 +65,16 @@ void try_to_find(LookupTable& lt, int key)
 
 void test_Customer()
 {
-    cout<<"\nCreating and testing Customers Lookup Table <not template>-...\n";
-    LookupTable lt;
+    cout<<"\nCreating and testing Customers Lookup Table <int, Customer>-...\n";
+    LookupTable<int, Customer> lt;
     
     // Insert using new keys.
     Customer a("Joe", "Morrison", "11 St. Calgary", "(403)-1111-123333");
     Customer b("Jack", "Lewis", "12 St. Calgary", "(403)-1111-123334");
     Customer c("Tim", "Hardy", "13 St. Calgary", "(403)-1111-123335");
-    lt.insert(Pair (8002, a));
-    lt.insert(Pair (8004,c));
-    lt.insert(Pair (8001,b));
+    lt.insert(Pair<int, Customer> (8002, a));
+    lt.insert(Pair<int, Customer> (8004,c));
+    lt.insert(Pair<int, Customer> (8001,b));
  
     assert(lt.size() == 3);
     lt.remove(8004);
@@ -82,7 +89,7 @@ void test_Customer()
     try_to_find(lt, 8000);
 
     // test Iterator
-    cout << "\nTesing and using  iterator ...\n";
+    cout << "\nTesting and using iterator ...\n";
     LookupTable::Iterator it = lt.begin();
     cout <<"\nThe first node contains: " <<*it <<endl;
 
@@ -111,7 +118,7 @@ void test_Customer()
     cout << "\nPrinting table for the last time: Table should be empty...\n";
     print(lt);
     
-    cout << "***----Finished tests on Customers Lookup Table <not template>-----***\n";
+    cout << "***----Finished tests on Customers Lookup Table <int, Customer>-----***\n";
     cout << "PRESS RETURN TO CONTINUE.";
     cin.get();
     
