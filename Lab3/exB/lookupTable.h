@@ -22,7 +22,11 @@ using namespace std;
 #include "customer.h"
 typedef int LT_Key; 
 typedef Customer LT_Datum;
- 
+template <class K, class D> class LT_Node;
+template <class K, class D> struct Pair;
+template <class K, class D> class LookupTable;
+
+
 template <class K, class D>
 struct Pair 
 {
@@ -30,18 +34,13 @@ struct Pair
   Pair(K keyA, D datumA):key(keyA), datum(datumA)
   {
   } 
-  
   K key;
   D datum;
 };
 
-
-// no need for templating? A: no
-template <class K, class D> class LT_Node;
-
 template <class K, class D>
 class LT_Node {
-  friend class LookupTable;
+  friend class LookupTable<K, D>;
 private:
   Pair<K, D> pairM;
   LT_Node *nextM;
@@ -49,9 +48,6 @@ private:
   // This ctor should be convenient in insert and copy operations.
   LT_Node(const Pair<K,D>& pairA, LT_Node *nextA);
 };
-
-
-template <class K, class D> class LookupTable;
 
 template <class K, class D>
 class LookupTable {
@@ -64,7 +60,7 @@ class LookupTable {
   public:
     Iterator():LT(0){}
     Iterator(LookupTable<K,D>& x): LT(&x){}    
-    const D&  operator *();
+    const D& operator *();
     const D& operator ++();
     const D& operator ++(int);
     int operator !();
@@ -132,7 +128,8 @@ class LookupTable {
   void make_empty();
   // PROMISES: size() == 0.
   
-  friend  ostream& operator << <K,D> (ostream& os, const LookupTable<K,D>& lt);
+  template <class A, class B>
+  friend ostream& operator <<(ostream& os, const LookupTable<K,D>& lt);
 
  private:
   int sizeM;
@@ -348,10 +345,8 @@ void LookupTable<K,D>::copy(const LookupTable& source)
     }
 }
 
-
-// TODO what is wrong with this
 template <class K, class D>
-ostream& operator << <K,D> (ostream& os, const LookupTable<K,D>& lt)
+ostream& operator <<(ostream& os, const LookupTable<K,D>& lt)
 {
   if (lt.cursor_ok())
     os <<lt.cursor_key() << "  " << lt.cursor_datum();
@@ -360,30 +355,6 @@ ostream& operator << <K,D> (ostream& os, const LookupTable<K,D>& lt)
 
   return os;
 }
-
-template <>
-ostream& operator << <int, Customer> (ostream& os, const LookupTable<int, Customer>& lt)
-{
-  if (lt.cursor_ok())
-    os <<lt.cursor_key() << "  " << lt.cursor_datum();
-  else
-    os<<"Not Found.";
-
-  return os;
-}
-
-template <> 
-ostream& operator << <,D> (ostream& os, const LookupTable<K,D>& lt)
-{
-  if (lt.cursor_ok())
-    os <<lt.cursor_key() << "  " << lt.cursor_datum();
-  else
-    os<<"Not Found.";
-
-  return os;
-}
-
-
 
 template <class K, class D>
 const D& LookupTable<K,D>::Iterator::operator *()

@@ -82,7 +82,7 @@ Mystring& Mystring::operator =(const Mystring& S)
   return *this;
 }
 
-ostream& operator <<(ostream& os, Mystring& output){
+ostream& operator << (ostream& os, const Mystring& output){
   os << output.charsM;
   return os;
 }

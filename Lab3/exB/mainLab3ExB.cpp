@@ -18,8 +18,8 @@ void try_to_find(LookupTable<K,D>& lt, K key);
 void test_Customer();
 
 //Uncomment the following function calls when ready to test template class LookupTable
-//void test_String();
-//void test_integer();
+void test_String();
+void test_integer();
 
 
 /////////////////////////////////////////////////////////////
@@ -33,11 +33,11 @@ int main()
 
  // Uncomment the following function calls when ready to test template class LookupTable.
  // Then create and test a lookup table of type <int, String>
- // test_String();
+ test_String();
 
  // Uncomment the following function calls when ready to test template class LookupTable.
  // Then create and test a a lookup table of type <int, int>
- // test_integer();
+ test_integer();
   cout<<"\n\nProgram terminated successfully.\n\n";
   return 0;
 }
@@ -90,7 +90,7 @@ void test_Customer()
 
     // test Iterator
     cout << "\nTesting and using iterator ...\n";
-    LookupTable::Iterator it = lt.begin();
+    LookupTable<int, Customer>::Iterator it = lt.begin();
     cout <<"\nThe first node contains: " <<*it <<endl;
 
     while (!it) {
@@ -100,7 +100,7 @@ void test_Customer()
     //test copying
     lt.go_to_first();
     lt.step_fwd();
-    LookupTable clt(lt);
+    LookupTable <int, Customer> clt(lt);
     assert(strcmp(clt.cursor_datum().getFname(),"Joe")==0);
 
     cout << "\nTest copying: keys should be 8001, and 8002\n";
@@ -127,11 +127,11 @@ void test_Customer()
 
 // When ready to test LookupTable<int , Mystrng> objects change #if 0 to #if 1
 
-#if 0
+#if 1
 void test_String()
 {
     cout<<"\nCreating and testing LookupTable <int, Mystring> .....\n";
-    LookupTable lt <int, Mstring>;
+    LookupTable <int, Mystring> lt ;
 
     // Insert using new keys.
 
@@ -156,8 +156,8 @@ void test_String()
     try_to_find(lt, 8001);
     try_to_find(lt, 8000);
     // test Iterator
-    LookupTable::Iterator it = lt.begin();
-    cout <<"\nThe first node contains: " <<*it <<endl;
+    LookupTable<int, Mystring>::Iterator it = lt.begin();
+    cout <<"\nThe first node contains: " << *it <<endl;
 
     while (!it) {
       cout <<++it << endl;
@@ -166,7 +166,7 @@ void test_String()
     //test copying
     lt.go_to_first();
     lt.step_fwd();
-    LookupTable  clt(lt);
+    LookupTable <int, Mystring> clt(lt);
     assert(strcmp(clt.cursor_datum().c_str(),"I am an ENEL-409 student.")==0);
 
     cout << "\nTest copying: keys should be 8001, and 8002\n";
@@ -192,11 +192,11 @@ void test_String()
 
 // When ready to test LookupTable<int , int> objects change #if 0 to #if 1
 
-#if 0
+#if 1
 void test_integer()
 {
     cout<<"\nCreating and testing LookupTable <int, int> .....\n";
-    LookupTable  lt<int, int>;
+    LookupTable <int, int>lt;
 
     // Insert using new keys.
     lt.insert(Pair<int, int>(8002,9999));
@@ -215,7 +215,7 @@ void test_integer()
     try_to_find(lt, 8000);
 
     // test Iterator
-    LookupTable::Iterator it = lt.begin();
+    LookupTable<int, int>::Iterator it = lt.begin();
 
     while (!it) {
       cout <<++it << endl;
@@ -225,7 +225,7 @@ void test_integer()
     //test copying
     lt.go_to_first();
     lt.step_fwd();
-    LookupTable clt(lt);
+    LookupTable <int, int> clt(lt);
     assert(clt.cursor_datum()== 9999);
 
     cout << "\nTest copying: keys should be 8001, and 8002\n";
