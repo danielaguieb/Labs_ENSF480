@@ -39,13 +39,29 @@ public class DemoStrategyPattern {
 			Item<Integer> item;
 			item = new Item<Integer> (Integer.valueOf(rand.nextInt(50)));
 			v2.add(item);
-			}
-		   
-	        System.out.println("\nThe original values in v2 object are:");
-			v2.display();
-			v2.setSortStrategy(new InsertionSorter<Integer>());;
-			v2.performSort();
-	        System.out.println("\nThe values in MyVector object v2 after performing InsertionSorter is:");
-			v2.display();	
+		}
+	   
+        System.out.println("\nThe original values in v2 object are:");
+		v2.display();
+		v2.setSortStrategy(new InsertionSorter<Integer>());;
+		v2.performSort();
+        System.out.println("\nThe values in MyVector object v2 after performing InsertionSorter is:");
+		v2.display();	
+		
+		MyVector<Integer> v3 = new MyVector<Integer> (50);
+		
+		// populate v2 with 5 randomly generated numbers
+		for(int i = 4; i >=0; i--) {
+			Item<Integer> item;
+			item = new Item<Integer> (Integer.valueOf(rand.nextInt(50)));
+			v3.add(item);
+		}
+	   
+        System.out.println("\nThe original values in v3 object are:");
+		v3.display();
+		v3.setSortStrategy(new SelectionSort<Integer>());;
+		v3.performSort();
+        System.out.println("\nThe values in MyVector object v3 after performing SelectionSort is:");
+		v3.display();	
 	}
 }
