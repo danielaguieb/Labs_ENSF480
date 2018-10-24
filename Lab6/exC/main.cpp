@@ -2,8 +2,8 @@
 //  main.cpp
 //  SigletonPattern
 //
-#include "Client_A.hpp"
-#include "Client_B.hpp"
+#include "Client_A.h"
+#include "Client_B.h"
 #include <iostream>
 using namespace std;
 
