@@ -1,7 +1,7 @@
 
 #include "LoginServer.h"
 
-LoginServer* LoginServer::instance;
+LoginServer* LoginServer::instance = NULL;
 
  LoginServer* LoginServer::getInstance(){
 	if(instance == NULL)
@@ -15,7 +15,7 @@ void LoginServer::add(string username, string password){
 
 User* LoginServer::validate(string username, string password){
 	for(unsigned int i=0; i<users.size(); i++){
-		if(strcmp(users.at(i).username.c_str(), username.c_str()) == 0)
+		if(strcmp(users.at(i).username.c_str(), username.c_str()) == 0 && strcmp(users.at(i).password.c_str(), password.c_str()) == 0)
 			return &(users.at(i));
 	}
 	return NULL;
